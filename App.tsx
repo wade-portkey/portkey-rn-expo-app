@@ -1,12 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Pressable } from 'react-native';
-// const Web3Utils = require('web3-utils');
-import Web3Utils from 'web3-utils';
 
 export default function App() {
   const onPress = () => {
     console.log('aaa');
-    console.log(Web3Utils);
     console.log('bbb');
   };
 
