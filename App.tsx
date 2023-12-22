@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Pressable } from 'react-native';
+import '@portkey/react-native-sdk';
 
 export default function App() {
   const onPress = () => {
