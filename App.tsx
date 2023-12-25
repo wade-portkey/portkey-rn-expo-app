@@ -1,18 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Pressable } from 'react-native';
-import '@portkey/react-native-sdk';
+import { portkey } from '@portkey/react-native-sdk';
 
 export default function App() {
-  const onPress = () => {
+  const onPress = async () => {
     console.log('aaa');
-    console.log('bbb');
+    try {
+      const res = await portkey.login();
+      console.log('bbb');
+    } catch (error) {
+      console.log('err', error);
+    }
+  };
+
+  const getWalletInfo = async () => {
+    console.log('aaa');
+    try {
+      const res = await portkey.getWalletInfo();
+      console.log('bbb', res);
+    } catch (error) {
+      console.log('err', error);
+    }
   };
 
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
       <Pressable style={styles.button} onPress={onPress}>
-        <Text>Click Me</Text>
+        <Text>Login</Text>
+      </Pressable>
+      <Pressable style={styles.button} onPress={getWalletInfo}>
+        <Text>Get Wallet Info</Text>
       </Pressable>
       <StatusBar style="auto" />
     </View>
